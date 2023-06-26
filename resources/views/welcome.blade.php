@@ -6,8 +6,36 @@
         <title>Laravel</title>
         @vite('resources/js/app.js')
     </head>
+    <style>
+        .card-container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+        .card{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center
+            margin: 30px;
+            width:250px;
+            height:250px;
+        }
+    </style>
     <body>
-        <h1 class="text-center">Ciao da vite</h1>
-        {{-- <img src="{{ Vite::asset('resources/img/picsum30.jpg') }}" alt=""> --}}
+
+        <div class="card-container">
+            @foreach ($movie as $item)
+            <div class="card">
+                <div>Title: {{ $item->title }}</div>
+                <div>Original title: {{ $item->original_title}}</div>
+                <div>Nationality: {{ $item->nationality }}</div>
+                <div>Date: {{ $item->date }}</div>
+                <div>Vote: {{ $item->vote }}</div>
+            </div>
+            @endforeach
+        </div>
+
     </body>
 </html>
